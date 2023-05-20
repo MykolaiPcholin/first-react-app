@@ -1,17 +1,31 @@
 import './App.css';
+import Card from './components/Card';
 
 function App() {
-  function showMessage(str) {
-    console.log(`Hello there, ${str}! :)`)
-  }
-  let string = "Ben";
+  const cards = [
+    {
+      id: 0,
+      name: "Name one",
+      src: "https://m.media-amazon.com/images/I/41seITtY+vL._AC_SX342_.jpg"
+    },
+    {
+      id: 1,
+      name: "Name two",
+      src: "https://media.studio7thailand.com/7094/iPhone_13_PDP_Position-1A_Color_Midnight__1-square_small.jpg"
+    },
+    {
+      id: 2,
+      name: "Name three",
+      src: "https://crs.al/wp-content/uploads/2021/11/i13.jpg"
+    }
+  ];
+  let elements = [];
+  cards.forEach(element => {
+    elements.push(<Card {...element}/>)
+  })
   return (
     <div className="App">
-      <h1>Init title</h1>
-      <img src='https://lh3.googleusercontent.com/blogger_img_proxy/AByxGDTWOAcYCJ6BDI3AtISL-AAxTdrD17pig6WXJMdLTfJI7RcUyF-eF7Ohblmr_66Q39-ukvbJBwNzhoRcZnRj7G5ywC3xdkSNVkMNJRrhWmaVq1roSBxh0BC0DcYkdDAvdpJw5oKnvF6URN-rtIRi=w919-h516-p-k-no-nu' alt='Background img'/>    
-      <br/>
-      <button className='button' onClick={showMessage(string)}>I`m not working</button>
-      <button className='button' onClick={() => showMessage(string)}>Click me, I`m working</button>
+      {elements}
     </div>
   );
 }
